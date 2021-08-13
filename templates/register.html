@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log-In</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static',filename='logo.png') }}" type="image/x-icon">
+</head>
+<body>
+    <section>
+
+        <hgroup>
+            <h1>Create Your Account</h1>
+            <h3>Please fill your details to make an account</h3>
+        </hgroup>
+    
+        <form method = "post" action="/add_user" class = "log-form">
+            <h1 style="text-align: center;">Sign-Up</h1>
+            <div class="group log-input">
+                <input type="text" name="name" id="name" placeholder="Please enter your name">
+
+            </div>
+            <div class="group log-input">
+                <input type="text" id = "username" name = "username" placeholder = "Please enter your username">
+            </div>
+    
+            <div class="group log-input">
+                <input type="password" id = "password" name = "password"  placeholder = "Please enter your password">
+            </div>
+    
+            <span class="check left-align">
+                <p>Already have an account?</p>
+            </span>
+    
+            <a class = "right-align" href="/">Click here to Login</a>
+    
+            <br><br>
+    
+            <div class="container-log-btn">
+              <button type="submit" name = "btn_submit" class="log-form-btn">
+                <span>Sign-Up</span>
+              </button>
+            </div>
+    
+        </form>
+    
+        
+    
+    </section>
+</body>
+</html>

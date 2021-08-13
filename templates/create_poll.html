@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="container">
+    <h2 style="color: wheat;">Please fill up the details for the options</h2>
+    <div class="form">
+        <form method="post" action="/add_poll" class="log-form">
+        <div class="group">
+            <input type="text" name="title" placeholder="Please enter the poll option-1" class="input-option">
+        </div>
+        <!-- <div class="group">
+            <input type="text" name="second" placeholder="Please enter the poll option-2" class="input-option">
+        </div>
+        <div class="group">
+            <input type="text" name="third" placeholder="Please enter the poll option-3" class="input-option">
+        </div>
+        <div class="group">
+            <input type="text" name="fourth" placeholder="Please enter the poll option-4" class="input-option">
+        </div> -->
+        <div class="container-log-btn">
+            <button type="submit" name="btn_submit" class="log-form-btn">
+                <span>Submit</span>
+            </button>
+        </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

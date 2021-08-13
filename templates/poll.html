@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/layout.css') }}">
+    <link rel="icon" href="{{ url_for('static',filename='logo.png') }}" type="image/x-icon">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="navlinks">
+                <li><a href="/home">Home</a></li>
+                <li><a href="/team">Teams</a></li>
+                <li><a href="/poll">Poll</a></li>
+                <li><a href="/members">Members</a></li>
+            </ul>
+        </nav>
+        <a href="/logout" class="cta"><button>Log out</button></a>
+  </header>
+<div class="container">
+    <h1 style="text-align: center; color: wheat;">Welcome to Poll</h1>
+    <div class="poll">
+        <div class="col">
+            <form action="/insert" method="post" id="poll_form">
+            <h2>T-shirt Poll</h2>
+            <br>
+            {% for rows in framework %}
+            <div class="radio">
+                <label><h4><input type="radio" name="poll_option" class="poll_option" value="{{rows[1]}}"  id="">{{rows[1]}}</h4></label>
+            </div>
+            {% endfor %}
+            <br>
+            <input type="submit" name="submit_button" value="submit" class="btn-1" name="poll_button" id="poll_button">
+            </form>
+        </div>
+        <!-- <div class="poll_result">
+            <h3>Poll results</h3>
+            <div id="poll_result">
+    
+            </div> -->
+        
+        </div>
+        
+    </div>
+</div>
+<!-- <script>
+    $(document).ready(function(){
+        fetch_poll_data();
+        function fetch_poll_data()
+        {
+            var fetchall = 'all';
+            var dataString = 'fetchall=' + fetchall;
+            $.ajax({
+                url: "/polldata",
+                method: "POST",
+                success: function(data)
+                {
+                    $('#poll_result').html(data);
+                    $('#poll_option').append(data.htmlresponse)
+                }
+
+
+            })
+        }
+        $('#poll_form').on('submit',function(event){
+            event.preventDefault();
+            let poll_option = '';
+            $('.poll_option').each(function(){
+                if($(this).prop('checked'))
+                {
+                    poll_option = $(this).val();
+                }
+            });
+            if(poll_option != '')
+            {
+                $('#poll_button').attr('disabled','disabled');
+                let form_data =$(this).serialize();
+                $.ajax({
+                    url:"/insert",
+                    method:"POST",
+                    data:form_data,
+                    success:function()
+                    {
+                        $('#poll_form')[0].reset();
+                        $('#poll_button').attr('disabled',false)
+                        fetch_poll_data();
+                        alert("Poll submitted successfully")
+                    }
+
+                });
+            }
+            else{
+                alert("Please select the option first")
+            }
+        });
+
+
+    }); -->
+</script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block body %}
+{% for row in frameworklist %}
+<div class="row">
+    <div class="response" >
+        <label>{{row[1]}}</label>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}

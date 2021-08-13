@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="container">
+    <h1 style="text-align: center; color: wheat;">Members</h1>
+    <div class="members">
+        <table style="width:30%; background-color: white; margin-left: 525px; margin-top: 25px;">
+            <tr>
+              <th>Members</th>
+            </tr>
+            {% for row in data %}
+                <tr>
+                    <td>{{row[0]}}</td>
+                    <!-- <td>{{row[1]}}</td>
+                    <td>{{row[2]}}</td> -->
+                </tr>
+                {% endfor %}
+          </table>
+    </div>
+</div>
+{% endblock %}

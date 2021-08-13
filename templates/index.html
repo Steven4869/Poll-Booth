@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="container">
+    <h1 style="text-align: center; color: wheat;">Welcome to Poll Booth</h1>
+    <div class="row">
+        <div class="col">
+            <a href="/create_teams">Create a Team</a>
+            <br>
+            <img src="{{ url_for('static',filename='team.jpg') }}" alt="Image">
+            <br>
+            <p style="color: wheat; margin-top: 15px;">Please fill up the necessary details for the creation of team</p>
+            <p style="color: wheat;">Head to <a href="/members" style="font-size: 18px; color: wheat; border-bottom: 2px solid white;"> Members</a> to see whom you can invite for the poll</p>
+    </div>
+        <div class="col">
+            <a href="/poll">Poll Results</a>
+            <br>
+            <img src="{{ url_for('static',filename='poll.png') }}" alt="Image" width="200px">
+            <br>
+            <p style="color: wheat;">Check the Poll results</p>
+            <p style="color: wheat;">Decide which design is best for the team</p>
+        </div>
+        <div class="col">
+            <a href="/create_poll">Create a Poll</a>
+            <br>
+            <img src="{{ url_for('static',filename='poll_creation.png') }}" alt="Image" width="200px">
+            <br>
+            <p style="color: wheat;">Fill up the necessary information for the poll</p>
+            <p style="color: wheat;">You can only select one option at a time</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

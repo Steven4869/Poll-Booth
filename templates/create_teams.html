@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="container">
+  <h1 style="text-align: center; color: wheat;">Create your team</h1>
+  <div class="section-form">
+    <form action="/add_team" method="post">
+      <div class="intro">
+        <h1>Please fill up the deatils</h1>
+        <input type="text" name="team_name" id="" tabindex='1' placeholder="Please enter the Team name">
+        <input type="text" name="members" id="" tabindex='2'
+          placeholder="Please enter the name of thr members to be invited">
+        <textarea name="description" id="" tabindex="5" rows="10"
+          placeholder="Please enter the desciption of your team"></textarea>
+          <button type="submit" name = "btn_submit" class="log-form-btn">
+            <span>Submit</span>
+          </button>
+
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
