@@ -4,7 +4,7 @@ import os
 conn = mysql.connector.connect(
     host='localhost',
     user='root',
-    password='shivamshivam',
+    password='',
     port='3306',
     database='pythonlogin'
 )
