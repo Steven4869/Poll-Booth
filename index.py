@@ -50,6 +50,7 @@ def add_poll():
 
 @app.route('/create_poll')
 def create_poll():
+
     return render_template('create_poll.html')
 @app.route('/login_validation', methods=['POST'])
 def login_validation():
@@ -62,18 +63,6 @@ def login_validation():
         return redirect('/home')
     else:
         return redirect('/')
-@app.route('/polldata',methods=['GET','POST'])
-def polldata():
-    cursor.execute("""SELECT * FROM polls""")
-    pollframe = cursor.fetchall()
-    frameworkArray =[]
-    for row in pollframe:
-        frameworkObj = {
-            'id': row["id"],
-            'name': row["title"]
-        }
-        frameworkArray.append(frameworkObj)
-        return jsonify({'htmlresponse': render_template('response.html', frameworklist =frameworkArray)})
 @app.route('/poll')
 def poll():
     cursor.execute("""SELECT * FROM polls""")
@@ -90,16 +79,13 @@ def create_teams():
 @app.route("/insert",methods=["POST","GET"])
 def insert():
     if request.method == 'POST':
-        # poll_option = request.form.get('poll_option')
-        # print(poll_option)
-        # cursor.execute("""INSERT INTO `poll_result`(`data`) VALUES ('{}') """.format(poll_option))
-        # conn.commit()
-        # conn.close()
-        # msg = 'success'
         if 'submit_button' in request.form:
             user_answer = request.form["poll_option"]
-            return user_answer
-    # return jsonify(msg)
+            return f"Poll submitted successfully and your choice was {user_answer} "
+    return redirect('/home')
+@app.route('/poll_results')
+def poll_results():
+    return render_template('poll_results.html')
 @app.route('/logout')
 def logout():
     session.pop('user_id')

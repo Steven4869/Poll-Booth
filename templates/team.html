@@ -5,10 +5,15 @@
     <h1 style="text-align: center; color: wheat;">Welcome to Teams</h1>
     {% for rows in teams %}
     <div class="grid-container">
-        <h1>{{rows[1]}}</h1>
-        <h3>Members: {{rows[2]}}</h3>
-        <p>{{rows[3]}}</p>
+        <div class="grid-item">
+            <h3>{{rows[1]}}</h3>
+            <h2>Members: {{rows[2]}}</h2>
+            <p style="font-weight: bold;">Description: <br>
+                {{rows[3]}}
+            </p>
+
     </div>
-    {% endfor %}
+</div>
+{% endfor %}
 </div>
 {% endblock %}
